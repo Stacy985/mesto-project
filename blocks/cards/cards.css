@@ -1,0 +1,18 @@
+.cards {
+  box-sizing: border-box;
+  padding: 50px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    padding: 40px 0 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cards {
+    padding: 36px 19px 0;
+  }
+}

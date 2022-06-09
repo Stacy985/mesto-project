@@ -1,0 +1,13 @@
+.profile__button-change {
+  width: 10px;
+  height: 10px;
+  display: block;
+  padding: 6px;
+}
+@media screen and (max-width: 600px) {
+  .profile__button-change {
+    width: 7.5px;
+    height: 7.5px;
+    padding: 4.25px;
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./pages/index.css" />
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <img src="./images/logo.svg" alt="Логотип Mesto" class="header__logo" />
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img src="./images/Avatar.png" alt="Ваша фото" class="profile__avatar" />
+      <div class="profile__text">
+        <div class="profile__text-button">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit-button" aria-label="edit">
+            <img src="./images/Edit_Button__1.svg" alt="карандаш" class="profile__button-change" />
+          </button>
+        </div>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button type="button" class="profile__add-button" aria-label="add">
+        <img src="./images/Add_Button___.svg" class="profile__button-adding" alt="плюсик" />
+      </button>
+    </section>
+    <section class="cards">
+      <ul class="cards__container">
+        <template id="card-template">
+          <li class="card">
+            <button class="card__trash" type="button"></button>
+            <img src="/" alt="" class="card__img" />
+
+            <div class="card__caption">
+              <h2 class="card__title"></h2>
+              <button type="button" class="card__like" aria-label="like"></button>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </section>
+
+    <div class="popup">
+      <!-- popup_opened попап профиля-->
+      <button type="button" class="popup__button popup__button-img" aria-label="Close">
+        <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
+      </button>
+      <form class="form" name="modal">
+        <h2 class="form__heading">Редактировать профиль</h2>
+        <fieldset class="form__input-container">
+          <input type="text" placeholder="Имя" class="form__item form__item-name" id="name" name="name" value="" />
+          <input type="text" placeholder="О себе" class="form__item form__item-information" id="information" name="information" value="" />
+          <button class="form__button" type="submit">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="popup popup_card">
+      <!-- popup_card_opened попап создания карточек-->
+      <button type="button" class="popup__button popup__button_card" aria-label="Close">
+        <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
+      </button>
+      <form class="form form-card" name="modal modal__addPhoto">
+        <h2 class="form__heading">Новое место</h2>
+        <fieldset class="form__input-container">
+          <input type="text" placeholder="Название" class="form__item form__item-locality" id="title" name="name" />
+          <input type="text" placeholder="Ссылка на картинку" class="form__item form__item-link" id="link" name="information" />
+          <button class="form__button" type="submit">Создать</button>
+        </fieldset>
+      </form>
+    </div>
+    <!--   popup_opened-->
+    <div class="popup popup_type-image">
+      <div class="popup__img-button-container">
+       <button type="button" class="popup__button popup__button_img" aria-label="Close">
+        <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
+      </button>
+      <div class="popup__img-container">
+        <img class="popup__img" src="/" alt="" />
+        <p class="popup__subtitle"></p>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+  <script src="/pages/index.js"></script>
+</body>
+
+</html>

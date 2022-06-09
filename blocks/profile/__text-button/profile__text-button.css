@@ -1,0 +1,14 @@
+.profile__text-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 336px;
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .profile__text-button {
+    max-width: 217px;
+    margin: auto;
+    padding-left: 25px;
+  }
+}

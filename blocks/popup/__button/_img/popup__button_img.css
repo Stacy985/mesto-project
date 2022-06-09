@@ -1,0 +1,10 @@
+.popup__button_img {
+  left: 40px;
+  top: -9px;
+}
+@media screen and (max-width: 600px) {
+  .popup__button_img {
+    top: -200px;
+    left: 250px;
+  }
+}
