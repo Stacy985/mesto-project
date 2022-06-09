@@ -2,7 +2,10 @@
   left: 40px;
   top: -9px;
 }
-.popup__button_img {
-  left: 0px;
-  top: -9px;
+
+@media screen and (max-width: 600px) {
+  .popup__button_img {
+    left: 0px;
+    top: -9px;
+  }
 }
