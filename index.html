@@ -44,45 +44,49 @@
       </ul>
     </section>
 
-    <div class="popup">
+    <div class="popup popup__profile">
       <!-- popup_opened попап профиля-->
-      <button type="button" class="popup__button popup__button-img" aria-label="Close">
-        <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
-      </button>
-      <form class="form" name="modal">
-        <h2 class="form__heading">Редактировать профиль</h2>
-        <fieldset class="form__input-container">
-          <input type="text" placeholder="Имя" class="form__item form__item-name" id="name" name="name" value="" />
-          <input type="text" placeholder="О себе" class="form__item form__item-information" id="information" name="information" value="" />
-          <button class="form__button" type="submit">Сохранить</button>
-        </fieldset>
-      </form>
+      <div class="popup__container">
+        <button type="button" class="popup__button popup__button-img" aria-label="Close">
+          <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
+        </button>
+        <form class="form form-profile" name="modal">
+          <h2 class="form__heading">Редактировать профиль</h2>
+          <fieldset class="form__input-container">
+            <input type="text" placeholder="Имя" class="form__item form__item-name" id="name" name="name" value="" />
+            <input type="text" placeholder="О себе" class="form__item form__item-information" id="information" name="information" value="" />
+            <button class="form__button" type="submit">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
     <div class="popup popup_card">
       <!-- popup_card_opened попап создания карточек-->
-      <button type="button" class="popup__button popup__button_card" aria-label="Close">
-        <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
-      </button>
-      <form class="form form-card" name="modal modal__addPhoto">
-        <h2 class="form__heading">Новое место</h2>
-        <fieldset class="form__input-container">
-          <input type="text" placeholder="Название" class="form__item form__item-locality" id="title" name="name" />
-          <input type="text" placeholder="Ссылка на картинку" class="form__item form__item-link" id="link" name="information" />
-          <button class="form__button" type="submit">Создать</button>
-        </fieldset>
-      </form>
-    </div>
-    <!--   popup_opened-->
-    <div class="popup popup_type-image">
-      <div class="popup__img-button-container">
-       <button type="button" class="popup__button popup__button_img" aria-label="Close">
-        <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
-      </button>
-      <div class="popup__img-container">
-        <img class="popup__img" src="/" alt="" />
-        <p class="popup__subtitle"></p>
+      <div class="popup__container">
+        <button type="button" class="popup__button popup__button_card" aria-label="Close">
+          <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
+        </button>
+        <form class="form form-card" name="modal modal__addPhoto">
+          <h2 class="form__heading">Новое место</h2>
+          <fieldset class="form__input-container">
+            <input type="text" placeholder="Название" class="form__item form__item-locality" id="title" name="name" />
+            <input type="text" placeholder="Ссылка на картинку" class="form__item form__item-link" id="link" name="information" />
+            <button class="form__button form__button-card" type="submit">Создать</button>
+          </fieldset>
+        </form>
       </div>
     </div>
+    <!--   popup_opened-->
+    <div class="popup popup_image popup__image">
+      <div class="popup__container">
+        <button type="button" class="popup__button popup__button_img" aria-label="Close">
+          <img src="./images/Close_Icon.svg" class="popup__icon" alt="крестик закрытия" />
+        </button>
+        <div class="popup__img-container">
+          <img class="popup__img" src="/" alt="" />
+          <p class="popup__subtitle"></p>
+        </div>
+      </div>
     </div>
   </main>
   <footer class="footer">

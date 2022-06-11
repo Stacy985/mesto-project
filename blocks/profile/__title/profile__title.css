@@ -6,6 +6,9 @@
   font-size: 42px;
   line-height: 48px;
   color: #ffffff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 @media screen and (max-width: 600px) {
   .profile__title {
