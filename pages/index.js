@@ -11,7 +11,7 @@ function closePopup(popup) {
 }
 
 const buttonEdit = document.querySelector(".profile__edit-button");
-const buttonClose = document.querySelector(".popup__button");
+const buttonCloseProfile = document.querySelector(".popup__button-profile");
 
 //откытие попапа edit
 buttonEdit.addEventListener("click", function () {
@@ -20,7 +20,7 @@ buttonEdit.addEventListener("click", function () {
   informationInput.value = profileSubtitle.textContent;
 });
 
-buttonClose.addEventListener("click", () => closePopup(profilePopup));
+buttonCloseProfile.addEventListener("click", () => closePopup(profilePopup));
 
 const profileForm = document.querySelector(".form-profile");
 const nameInput = profileForm.querySelector(".form__item-name");
@@ -76,8 +76,8 @@ const picPopup = imagePopup.querySelector(".popup__img");
 const imgSubtitle = imagePopup.querySelector(".popup__subtitle");
 
 //открытие попапа с картинкой
-const closePopupImg = document.querySelector(".popup__button_img");
-closePopupImg.addEventListener("click", function () {
+const buttonCloseImg = document.querySelector(".popup__button_img");
+buttonCloseImg.addEventListener("click", function () {
   closePopup(imagePopup);
 });
 //картинка в попапе
