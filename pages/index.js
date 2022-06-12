@@ -100,7 +100,7 @@ const createCard = function (data) {
   const buttonTrashCard = cardElement.querySelector(".card__trash");
   cardImg.src = data.link;
   titleCard.textContent = data.name;
-  linkInput.src = data.link;
+  cardImg.alt = data.name;
   cardImg.addEventListener("click", () => handleClickImage(data)); //обработчик событий
   buttonTrashCard.addEventListener("click", () =>
     handleClickButtonDelete(cardElement)
@@ -135,6 +135,6 @@ const addCard = function (event) {
   const cardInfo = { name: titleInput.value, link: linkInput.value };
   renderCard(cardInfo, cardsContainer);
   closePopup(cardPopup);
-  event.target.reset();
+  cardForm.reset();
 };
 cardForm.addEventListener("submit", addCard);

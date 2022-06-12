@@ -14,12 +14,6 @@
 .popup__button:hover {
   opacity: 0.6;
 }
-@media screen and (max-width: 1150px) {
-  .popup__button {
-    left: 60%;
-    top: -25%;
-  }
-}
 
 @media screen and (max-width: 600px) {
   .popup__button {
