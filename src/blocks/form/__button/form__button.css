@@ -8,7 +8,7 @@
   border-radius: 2px;
   padding: 0;
   color: #ffffff;
-  margin-top: 48px;
+  margin-top: 18px;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -19,6 +19,9 @@
 }
 .form__button:hover {
   opacity: 0.8;
+}
+.form__button:not([disabled]):hover{
+  cursor: pointer
 }
 @media screen and (max-width: 600px) {
   .form__button {

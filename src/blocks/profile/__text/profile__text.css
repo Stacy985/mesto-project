@@ -9,7 +9,7 @@
   }
 }
 
-@media screen and (max-width: 6900px) {
+@media screen and (max-width: 900px) {
   .profile__text {
     text-align: center;
   }
