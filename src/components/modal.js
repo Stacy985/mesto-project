@@ -16,24 +16,50 @@ import {resetProfifleForm} from './validate.js';
 import{toggleButtonState, validationConfig} from './validate.js'
 
 
+
+ 
+
 //универсальное отркытие  и закрытие попапа
 function openPopup(popup) {
     popup.classList.add("popup_opened");
+    window.addEventListener("keydown", keyHandlerEsc);
+    window.addEventListener("mousedown", closeByClickOverlay);
   }
   function closePopup(popup) {
     popup.classList.remove("popup_opened");
+    window.removeEventListener("keydown", keyHandlerEsc);
+    window.removeEventListener("mousedown", closeByClickOverlay);
   }
 
   export {openPopup, closePopup}; 
 
-  //фунция закрытия popup по esc
-function keyHandlerEsc(evt) {
-    if (evt.key === "Escape") {
-      closePopup(imagePopup);
+ //фунция закрытия popup по esc
+ function keyHandlerEsc(evt) {
+  if (evt.key === "Escape") {
+    const openPopup = document.querySelector('.popup_opened');
+    if (openPopup) {
+      openPopup.classList.remove('popup_opened');
+    }
+   }
+}
+
+export {keyHandlerEsc}; 
+
+
+
+
+//функция закрытия попапа по клику на оверлей
+function closeByClickOverlay(evt) {
+  if (evt.target.classList.contains("popup")) {
+    const openPopup = document.querySelector('.popup_opened');
+    if (openPopup) {
+      openPopup.classList.remove('popup_opened');
     }
   }
+}
+export{closeByClickOverlay};
 
-  export {keyHandlerEsc}; 
+
 
 
 //откытие попапа edit
@@ -44,6 +70,7 @@ buttonEdit.addEventListener("click", function (event) {
     openPopup(profilePopup);
     nameInput.value = nameTitle.textContent;
     informationInput.value = profileSubtitle.textContent;
+   
   });
   buttonCloseProfile.addEventListener("click", () => {
       closePopup(profilePopup)
@@ -65,21 +92,11 @@ buttonEdit.addEventListener("click", function (event) {
 
 
 
-//функция закрытия попапа по клику на оверлей
-function closeByClickOverlay(evt) {
-    const popup = document.querySelector(".popup_opened");
-    if (evt.target.classList.contains("popup")) {
-      closePopup(popup);
-    }
-  }
-export{closeByClickOverlay};
 
   //открытие попапа с картинкой
   export const buttonCloseImg = document.querySelector(".popup__button_img");
   buttonCloseImg.addEventListener("click", function () {
     closePopup(imagePopup);
-    window.addEventListener("keydown", keyHandlerEsc);
-    window.addEventListener("mousedown", closeByClickOverlay);
   });
   
 
