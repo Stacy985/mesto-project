@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
     <title>Mesto</title>
   </head>
 
   <body class="page">
     <header class="header">
-      <img src="./images/logo.svg" alt="Логотип Mesto" class="header__logo" />
+      <img src="<%=require('./images/logo.svg')%>" alt="Логотип Mesto" class="header__logo" /> 
     </header>
     <main class="content">
       <section class="profile">
         <img
-          src="./images/Avatar.png"
+          src="<%=require('./images/Avatar.png')%>"
           alt="Ваша фото"
           class="profile__avatar"
         />
@@ -27,7 +27,7 @@
               aria-label="edit"
             >
               <img
-                src="./images/Edit_Button__1.svg"
+                src="<%=require('./images/Edit_Button__1.svg')%>"
                 alt="карандаш"
                 class="profile__button-change"
               />
@@ -37,7 +37,7 @@
         </div>
         <button type="button" class="profile__add-button" aria-label="add">
           <img
-            src="./images/Add_Button___.svg"
+            src="<%=require('./images/Add_Button___.svg')%>"
             class="profile__button-adding"
             alt="плюсик"
           />
@@ -72,7 +72,7 @@
             aria-label="Close"
           >
             <img
-              src="./images/Close_Icon.svg"
+              src="<%=require('./images/Close_Icon.svg')%>"
               class="popup__icon"
               alt="крестик закрытия"
             />
@@ -126,7 +126,7 @@
             aria-label="Close"
           >
             <img
-              src="./images/Close_Icon.svg"
+              src= "<%=require('./images/Close_Icon.svg')%>"
               class="popup__icon"
               alt="крестик закрытия"
             />
@@ -178,7 +178,7 @@
             aria-label="Close"
           >
             <img
-              src="./images/Close_Icon.svg"
+              src="<%=require('./images/Close_Icon.svg')%>"
               class="popup__icon"
               alt="крестик закрытия"
             />
