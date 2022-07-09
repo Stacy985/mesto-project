@@ -15,7 +15,6 @@ const validationConfig = {
 const showError = (erroreElement, inputElement) => {
   inputElement.classList.add("form__item_invalid");
   erroreElement.textContent = inputElement.validationMessage;
-  //sconsole.log(erroreElement);
 };
 const hideError = (erroreElement, inputElement) => {
   inputElement.classList.remove("form__item_invalid");
@@ -40,8 +39,6 @@ const checkInpitValidity = (inputElement, formElement) => {
 };
 //работа с кнопкой
 const toggleButtonState = (button, active = false, configClassButton) => {
-  //console.log(button, active, configClassButton);
-
   if (active) {
     button.classList.remove(configClassButton.inActibeButtonClass);
     button.disabled = false;
@@ -54,7 +51,7 @@ const toggleButtonState = (button, active = false, configClassButton) => {
 const setEventListener = (formElement, config) => {
   const inputList = formElement.querySelectorAll(config.inputSelector);
   const sabmitButton = formElement.querySelector(config.submitButtonSelector);
-
+  toggleButtonState(sabmitButton, formElement.checkValidity(), config);
   formElement.addEventListener("submit", (e) => {
     e.preventDefault();
   });

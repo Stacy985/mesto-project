@@ -70,9 +70,7 @@ function createName(evt) {
   nameTitle.textContent = nameInput.value;
   profileSubtitle.textContent = informationInput.value;
   closePopup(profilePopup);
-  resetValidation(profileForm);
-  const sabmitButton = document.querySelector(".form__button");
-  toggleButtonState(sabmitButton, false, validationConfig);
+  toggleButtonState(evt.submitter, false, validationConfig);
 }
 
 export { createName };

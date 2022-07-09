@@ -86,8 +86,7 @@ const addCard = function (event) {
   renderCard(cardInfo, cardsContainer);
   closePopup(cardPopup);
   resetValidation(cardForm);
-  const sabmitButton = document.querySelector(".form__button");
-  toggleButtonState(sabmitButton, false, validationConfig);
+  toggleButtonState(event.submitter, false, validationConfig);
 };
 cardForm.addEventListener("submit", addCard);
 export { addCard };
