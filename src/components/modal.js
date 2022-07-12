@@ -17,8 +17,18 @@ export const imgSubtitle = imagePopup.querySelector(".popup__subtitle");
 export const cardPopupCloseButton = document.querySelector(
   ".popup__button_card"
 );
-import { resetValidation } from "./validate.js";
-import { toggleButtonState, validationConfig } from "./validate.js";
+export const avatarForm = document.querySelector(".form-avatar");
+export const buttonAvatar = document.querySelector(".profile__avatar-button");
+export const avatarPopup = document.querySelector(".popup_avatar");
+export const avatarPopupCloseButton = document.querySelector(
+  ".popup__button_avatar"
+);
+import {
+  toggleButtonState,
+  validationConfig,
+  resetValidation,
+} from "./validate.js";
+export const avatarButton = document.querySelector(".form__button-avatar");
 
 //универсальное отркытие  и закрытие попапа
 function openPopup(popup) {
@@ -64,6 +74,24 @@ buttonCloseProfile.addEventListener("click", () => {
   closePopup(profilePopup);
 });
 
+//открытие попапа аватара
+
+buttonAvatar.addEventListener("click", function (event) {
+  openPopup(avatarPopup);
+});
+
+avatarPopupCloseButton.addEventListener("click", function () {
+  closePopup(avatarPopup);
+});
+//обнавление аватара
+export const inputAvatar = document.querySelector(".form__item-avatar");
+export const avatarImg = document.querySelector(".profile__avatar");
+
+export const buttonProfilesave = document.querySelector(
+  ".form__button-profile"
+);
+
+//редактирование
 profileForm.addEventListener("submit", createName);
 function createName(evt) {
   evt.preventDefault();

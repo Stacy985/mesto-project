@@ -17,3 +17,6 @@
 .card__trash:hover {
   opacity: 0.5;
 }
+.card__trash_disabled {
+  visibility: hidden;
+}
