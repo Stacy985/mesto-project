@@ -91,18 +91,6 @@ export const buttonProfilesave = document.querySelector(
   ".form__button-profile"
 );
 
-//редактирование
-profileForm.addEventListener("submit", createName);
-function createName(evt) {
-  evt.preventDefault();
-  nameTitle.textContent = nameInput.value;
-  profileSubtitle.textContent = informationInput.value;
-  closePopup(profilePopup);
-  toggleButtonState(evt.submitter, false, validationConfig);
-}
-
-export { createName };
-
 //открытие попапа с картинкой
 export const buttonCloseImg = document.querySelector(".popup__button_img");
 buttonCloseImg.addEventListener("click", function () {

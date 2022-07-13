@@ -14,9 +14,3 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
-/* *,
-*::before,
-*::after {
-  outline: 1px solid red
-}
- */
