@@ -1,4 +1,4 @@
-import avatar from "../images/Avatar.png";
+/* import avatar from "../images/Avatar.png";
 import logo from "../images/logo.svg";
 import buttonImgEdit from "../images/Edit_Button__1.svg";
 import buttonImgAdd from "../images/Add_Button___.svg";
@@ -9,7 +9,7 @@ const imgLocal = [
   { name: "Pan", link: buttonImgEdit },
   { name: "Plus", link: buttonImgAdd },
 ];
-import "../pages/index.css";
+import "../pages/index.css"; */
 
 import {
   imagePopup,
@@ -68,17 +68,18 @@ import {
 } from "./card.js";
 
 import {
-  config,
-  onResponce,
-  getCards,
-  deleteCard,
-  getUsers,
-  editPrifile,
-  likeInform,
-  getAllInfo,
-  getCard,
-  gatUserAvatar,
-} from "./api.js";
+Api
+} from "./Api.js";
+
+const config = {
+  url: 'https://mesto.nomoreparties.co/v1/plus-cohort-13',
+  headers: {
+      authorization:'bfab4c9e-8154-4a65-a30a-fb47c451faea',
+      'Content-Type':'application/json',
+    },
+};
+const api = new Api(config);
+
 
 import { buttonSave, loading } from "./utils.js";
 
@@ -87,7 +88,7 @@ let userId = null;
 //изменение профиля
 function profileChanges(evt) {
   loading(buttonProfilesave, true);
-  editPrifile({ name: nameInput.value, about: informationInput.value })
+  api.editPrifile({ name: nameInput.value, about: informationInput.value })
     .then((data) => {
       nameTitle.textContent = nameInput.value;
       profileSubtitle.textContent = informationInput.value;
@@ -112,7 +113,7 @@ function createName(evt) {
 }
 
 const handlerLike = (cardId, likedCreate, cardElement) => {
-  likeInform(cardId, likedCreate)
+  api.likeInform(cardId, likedCreate)
     .then((data) => {
       likeStatus(cardElement, data.likes, userId);
     })
@@ -121,14 +122,14 @@ const handlerLike = (cardId, likedCreate, cardElement) => {
     });
 };
 
-getAllInfo().then(([user, cards]) => {
+api.getAllInfo().then(([user, cards]) => {
   nameTitle.textContent = user.name;
   profileSubtitle.textContent = user.about;
   avatarImg.src = user.avatar;
   userId = user._id;
 
   cards.reverse().forEach((data) => {
-    renderCard(data, cardsContainer, userId, handlerLike, deleteCard);
+    renderCard(data, cardsContainer, userId, handlerLike, api.deleteCard);
   });
 });
 
@@ -138,7 +139,7 @@ cardForm.addEventListener("submit", addCard);
 const cardChange = function (evt) {
   evt.preventDefault();
   loading(buttonCardSave, true);
-  getCard({ name: titleInput.value, link: linkInput.value })
+  api.getCard({ name: titleInput.value, link: linkInput.value })
     .then((data) => {
       renderCard(data, cardsContainer, userId, handlerLike, deleteCard);
       closePopup(cardPopup);
@@ -159,7 +160,7 @@ function addCard(event) {
 avatarForm.addEventListener("submit", createAvatar);
 function changeCreateAvatar(evt) {
   loading(avatarButton, true);
-  gatUserAvatar({ avatar: inputAvatar.value })
+  api.gatUserAvatar({ avatar: inputAvatar.value })
     .then((data) => {
       avatarImg.src = data.link;
       avatarImg.src = inputAvatar.value;

@@ -4,7 +4,7 @@ import {
   validationConfig,
   resetValidation,
 } from "./validate.js";
-import { likeInform, getCard } from "./api.js";
+
 
 let userId = null;
 export const cardsContainer = document.querySelector(".cards__container");
