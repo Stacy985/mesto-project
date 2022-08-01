@@ -31,7 +31,7 @@ import {
 export const avatarButton = document.querySelector(".form__button-avatar");
 
 //универсальное отркытие  и закрытие попапа
-function openPopup(popup) {
+/* function openPopup(popup) {
   popup.classList.add("popup_opened");
   window.addEventListener("keydown", keyHandlerEsc);
   window.addEventListener("mousedown", closeByClickOverlay);
@@ -42,17 +42,17 @@ function closePopup(popup) {
   window.removeEventListener("mousedown", closeByClickOverlay);
 }
 
-export { openPopup, closePopup };
+export { openPopup, closePopup }; */
 
-//фунция закрытия popup по esc
+/* //фунция закрытия popup по esc
 function keyHandlerEsc(evt) {
   if (evt.key === "Escape") {
     const openPopup = document.querySelector(".popup_opened");
     closePopup(openPopup);
   }
-}
+} */
 
-export { keyHandlerEsc };
+/* export { keyHandlerEsc }; */
 
 //функция закрытия попапа по клику на оверлей
 function closeByClickOverlay(evt) {

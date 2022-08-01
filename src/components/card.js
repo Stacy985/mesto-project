@@ -1,4 +1,6 @@
-import { handleClickImage, cardPopup, closePopup } from "./modal.js";
+import { handleClickImage, cardPopup} from "./modal.js"; 
+//closePopup 
+
 import {
   toggleButtonState,
   validationConfig,
@@ -52,71 +54,71 @@ const handleClickButtonDelete = function (element) {
 export const cardLikeCounter = document.querySelector(".card__like-count");
 
 //создание карточек
-const createCard = function (data, userId, handlerLike, deleteCard) {
-  //console.log(data);
-  //дата-данные которые передаем
-  const cardId = data._id;
-  const cardLikes = data.likes;
-  const ownerId = data.owner._id;
-  const cardElement = cardTemplate.cloneNode(true); //  делаем клон и с тру клонируем весь элемент
-  const cardImg = cardElement.querySelector(".card__img");
-  const titleCard = cardElement.querySelector(".card__title");
-  const buttonTrashCard = cardElement.querySelector(".card__trash");
-  const cardButtonLike = cardElement.querySelector(".card__like");
-  const cardLikeCounter = cardElement.querySelector(".card__like-count");
-  let alreadyLiked = false;
-  let isMyImage = false;
+// const createCard = function (data, userId, handlerLike, deleteCard) {
+//   //console.log(data);
+//   //дата-данные которые передаем
+//   const cardId = data._id;
+//   const cardLikes = data.likes;
+//   const ownerId = data.owner._id;
+//   const cardElement = cardTemplate.cloneNode(true); //  делаем клон и с тру клонируем весь элемент
+//   const cardImg = cardElement.querySelector(".card__img");
+//   const titleCard = cardElement.querySelector(".card__title");
+//   const buttonTrashCard = cardElement.querySelector(".card__trash");
+//   const cardButtonLike = cardElement.querySelector(".card__like");
+//   const cardLikeCounter = cardElement.querySelector(".card__like-count");
+//   let alreadyLiked = false;
+//   let isMyImage = false;
 
-  // проверка на лайк при создании карточки
-  cardLikes.forEach((like) => {
-    if (like._id === userId) {
-      alreadyLiked = true;
-    }
-  });
+//   // проверка на лайк при создании карточки
+//   cardLikes.forEach((like) => {
+//     if (like._id === userId) {
+//       alreadyLiked = true;
+//     }
+//   });
 
-  // если уже лайкнули, добавляем заполненное средечко
-  if (alreadyLiked) {
-    cardButtonLike.classList.add("card__like_active");
-  }
+//   // если уже лайкнули, добавляем заполненное средечко
+//   if (alreadyLiked) {
+//     cardButtonLike.classList.add("card__like_active");
+//   }
 
-  // проверка на авторство
-  if (userId !== ownerId) {
-    // мы - не владелец фотки
-    // прячем иконку удаления
-    buttonTrashCard.classList.add("card__trash_disabled");
-  } else {
-    isMyImage = true;
-  }
+//   // проверка на авторство
+//   if (userId !== ownerId) {
+//     // мы - не владелец фотки
+//     // прячем иконку удаления
+//     buttonTrashCard.classList.add("card__trash_disabled");
+//   } else {
+//     isMyImage = true;
+//   }
 
-  cardImg.src = data.link;
-  titleCard.textContent = data.name;
-  cardImg.alt = data.name;
-  cardLikeCounter.textContent = cardLikes.length;
+//   cardImg.src = data.link;
+//   titleCard.textContent = data.name;
+//   cardImg.alt = data.name;
+//   cardLikeCounter.textContent = cardLikes.length;
 
-  cardImg.addEventListener("click", () => handleClickImage(data)); //обработчик событий
+//   cardImg.addEventListener("click", () => handleClickImage(data)); //обработчик событий
 
-  buttonTrashCard.addEventListener("click", () => {
-    // handleClickButtonDelete(cardElement)
-    if (isMyImage) {
-      // 1 - удалить из АПИ
-      deleteCard(cardId);
+//   buttonTrashCard.addEventListener("click", () => {
+//     // handleClickButtonDelete(cardElement)
+//     if (isMyImage) {
+//       // 1 - удалить из АПИ
+//       deleteCard(cardId);
 
-      // 2 - удалить из верстки
-      handleClickButtonDelete(cardElement);
-    }
-  });
+//       // 2 - удалить из верстки
+//       handleClickButtonDelete(cardElement);
+//     }
+//   });
 
-  cardButtonLike.addEventListener("click", () => {
-    alreadyLiked = !alreadyLiked;
-    handlerLike(cardId, !alreadyLiked, cardElement);
-  });
+//   cardButtonLike.addEventListener("click", () => {
+//     alreadyLiked = !alreadyLiked;
+//     handlerLike(cardId, !alreadyLiked, cardElement);
+//   });
 
-  /*   if (data.owner._id !== userId){
-    buttonTrashCard.remove();
-  }
- */
-  return cardElement;
-};
+//   /*   if (data.owner._id !== userId){
+//     buttonTrashCard.remove();
+//   }
+//  */
+//   return cardElement;
+// };
 
 export const likedCreate = (likeArray, userId) => {
   return Boolean(

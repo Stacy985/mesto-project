@@ -31,11 +31,7 @@ import {
   avatarPopupCloseButton,
   avatarForm,
   buttonProfilesave,
-  openPopup,
-  closePopup,
-  keyHandlerEsc,
   closeByClickOverlay,
-  handleClickImage,
   avatarImg,
   inputAvatar,
   avatarPopup,
@@ -69,7 +65,8 @@ import {
 
 import {
 Api
-} from "./Api.js";
+} from "./api.js";
+import  {Popup} from "./Popup.js";
 
 const config = {
   url: 'https://mesto.nomoreparties.co/v1/plus-cohort-13',
@@ -78,7 +75,15 @@ const config = {
       'Content-Type':'application/json',
     },
 };
+
+//апи
 const api = new Api(config);
+
+//откртие картинки
+const popupImage = new Popup('.popup__image'); 
+/* popupImage.setEventListener(); */
+
+
 
 
 import { buttonSave, loading } from "./utils.js";
