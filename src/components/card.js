@@ -150,4 +150,4 @@ const renderCard = function (data, container, userId, handlerLike, deleteCard) {
 // initialCards.forEach(function (item) {
 //   renderCard(item, cardsContainer, userId);
 // });
-export { handleClickButtonDelete, createCard, renderCard, likeStatus };
+export { handleClickButtonDelete, renderCard, likeStatus };

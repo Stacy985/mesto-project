@@ -8,8 +8,8 @@ const imgLocal = [
   { name: "Logo Mesto", link: logo },
   { name: "Pan", link: buttonImgEdit },
   { name: "Plus", link: buttonImgAdd },
-];
-import "../pages/index.css"; */
+];*/
+import "../pages/index.css"; 
 
 import {
   imagePopup,

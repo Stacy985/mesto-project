@@ -1,20 +1,12 @@
-// export class Section {
-// constructor({items, renderer},container ){
-//     this._renderer = renderer;
-//     this._items = items;
-//     this._container = container;
-// }
-// }
-
 export class Section {
-    constructor (container, renderer) {
-        this._container = container; 
-        this._renderer = renderer;
+    constructor(containerSelectos,renderer){
+    this._container = document.querySelector(containerSelectos);
+    this._renderer = renderer;
     }
-
+    
     _addCard (item) {
-        const card = this._renderer(item)
-        this._container.appened(card)
+        const card = this._renderer(item);
+        this._container.append(card)
     }
 
     renderItem (items) {
@@ -23,4 +15,3 @@ export class Section {
         })
     }
 }
-

@@ -24,11 +24,11 @@ export class Api {
     }
     
   getAllInfo(){
-    return Promise.all([this._getUsers(),this._getCards()])
+    return Promise.all([this._getUsers(), this._getCards()])
     };
     
     //редактирование информации о пользователе
-editPrifile(data){
+    editProfile(data){
     return fetch(`${this._url}/users/me`,{
       method: "PATCH",
       headers: this._headers,
@@ -37,12 +37,26 @@ editPrifile(data){
     }
     
     
-   likeInform (dataId, islike) {
+/*    likeInform (dataId, islike) {
       return fetch(`${this._url}/cards/likes/${dataId}`,{
         method: islike ? "DELETE" : "PUT",
         headers: this._headers,
       }).then(this._onResponce);
-    }
+    } */
+
+   putLike (dataId) {
+    return fetch(`${this._url}/cards/likes/${dataId}`,{
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._onResponce);
+  };
+
+  deleteLike (dataId) {
+    return fetch(`${this._url}/cards/likes/${dataId}`,{
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._onResponce);
+  };
     
     
     

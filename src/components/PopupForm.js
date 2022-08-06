@@ -1,29 +1,43 @@
-import {Popup} from "../components/Popup.js"
-export class PopupForm{
-    constructor({popupSelector, handleFormSubmit}){
+import {Popup} from "./Popup.js"
+export class PopupForm extends Popup{
+    constructor(popupSelector, handleFormSubmit){
         super(popupSelector);
-        this._form = this._popup.querySelector('.form-profile');
-        this._inputs = this._form.querySelectorAll('.form__item');
+        this._handleFormSubmit = handleFormSubmit;
+        this._popup = document.querySelector(popupSelector);
+        this._formPopup = this._popup.querySelector('.form')
+        this._inputList = this._popup.querySelectorAll('.form__item');
         this._popupButton = this._popup.querySelector('.form__button');
-        this.handleSubmitForm = handleSubmitForm;
-        this._popupButtonTextContent = this._popupButton.textContent;
     }
     _getInputValues() {
         this._formValues = {};
-        this._inputsList = Array.from(this._inputs);
-        this._inputsList.forEach(input => this._formValues[input.name] = input.value);
+        this._inputList.forEach(input => this._formValues[input.name] = input.value);
         
         return this._formValues;
       }
-    setEventListeners(){
-        this._popup.addEventListener('submit', (evt) => {
+
+    setInputValues(dataInput) {
+      this._inputList.forEach((input) => {
+        input.value = dataInput[input.name]
+      })
+    }
+
+    _setEventListeners() {
+      super._setEventListeners();
+        this._formPopup.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleFormSubmit(this._getInputValues());
-          })
-          this._popup.querySelector('.form').reset();
-          super.setEventListeners();
+          });
     }
-    close() {
-        super.close();
-      }
+
+    _removeEventListeners() {
+      this._formPopup.removeEventListener('submit', (evt) => {
+        evt.preventDefault();
+        this._handleFormSubmit(this._getInputValues());
+      })
+    }
+
+    open() {
+      super.open();
+      this._setEventListeners()
+    }
 }
