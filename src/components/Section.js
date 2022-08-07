@@ -4,14 +4,23 @@ export class Section {
     this._renderer = renderer;
     }
     
-    _addCard (item) {
+    addCard(item, position = 'append') {
         const card = this._renderer(item);
-        this._container.append(card)
+        switch (position) {
+            case 'append':
+                this._container.append(card)
+                break;
+            case 'prepend':
+                this._container.prepend(card)
+                break;
+            default:
+                break;
+        } 
     }
 
-    renderItem (items) {
+    renderItem(items) {
         items.forEach((item) => {
-            this._addCard(item)
+            this.addCard(item)
         })
     }
 }

@@ -10,9 +10,9 @@
   width: 18px;
   height: 19px;
   transition: 0.2s linear;
-  position: relative;
-  top: 40px;
-  left: 245px;
+  position: absolute;
+  top: 18px;
+  left: 249px;
 }
 .card__trash:hover {
   opacity: 0.5;

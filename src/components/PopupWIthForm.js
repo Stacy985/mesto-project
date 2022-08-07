@@ -1,5 +1,5 @@
 import {Popup} from "./Popup.js"
-export class PopupForm extends Popup{
+export class PopupWithForm extends Popup{
     constructor(popupSelector, handleFormSubmit){
         super(popupSelector);
         this._handleFormSubmit = handleFormSubmit;
@@ -21,23 +21,19 @@ export class PopupForm extends Popup{
       })
     }
 
-    _setEventListeners() {
+    setEventListeners() {
       super._setEventListeners();
         this._formPopup.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleFormSubmit(this._getInputValues());
           });
     }
-
-    _removeEventListeners() {
-      this._formPopup.removeEventListener('submit', (evt) => {
-        evt.preventDefault();
-        this._handleFormSubmit(this._getInputValues());
-      })
-    }
-
-    open() {
-      super.open();
-      this._setEventListeners()
+    
+    renderLoading(loading) {
+      if (loading) {
+        this._popupButton.textContent = "Сохранение...";
+      } else {
+        this._popupButton.textContent = "Сохранить";
+      }
     }
 }
