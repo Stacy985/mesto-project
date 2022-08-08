@@ -3,29 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
     <title>Mesto</title>
   </head>
 
   <body class="page">
     <header class="header">
-    
-      <img src= "<%=require('./images/logo.svg')%>" alt="Логотип Mesto" class="header__logo" />
+      <img
+        src="<%=require('./images/logo.svg')%>"
+        alt="Логотип Mesto"
+        class="header__logo"
+      />
     </header>
     <main class="content">
       <section class="profile">
-        
-     <div class="profile__avatar-container">
-     <!--  "<%=require('./images/Avatar.png')%>" -->
-      <img
-      src="<%=require('./images/Avatar.png')%>"
-      alt="Ваша фото"
-      class="profile__avatar"
-    />
-        <button 
-        type="button"
-        class="profile__avatar-button"
-        ></button> </div>
+        <div class="profile__avatar-container">
+          <!--  "<%=require('./images/Avatar.png')%>" -->
+          <img
+            src="<%=require('./images/Avatar.png')%>"
+            alt="Ваша фото"
+            class="profile__avatar"
+          />
+          <button type="button" class="profile__avatar-button"></button>
+        </div>
         <div class="profile__text">
           <div class="profile__text-button">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -34,7 +33,6 @@
               class="profile__edit-button"
               aria-label="edit"
             >
-              
               <img
                 src="<%=require('./images/Edit_Button__1.svg')%>"
                 alt="карандаш"
@@ -45,9 +43,8 @@
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
         <button type="button" class="profile__add-button" aria-label="add">
-          
           <img
-            src= "<%=require('./images/Add_Button___.svg')%>"
+            src="<%=require('./images/Add_Button___.svg')%>"
             class="profile__button-adding"
             alt="плюсик"
           />
@@ -76,7 +73,7 @@
         </ul>
       </section>
 
-      <div class="popup popup__profile">
+      <div class="popup popup_profile">
         <!-- popup_opened попап профиля-->
         <div class="popup__container">
           <button
@@ -84,7 +81,6 @@
             class="popup__button popup__button-profile"
             aria-label="Close"
           >
-            
             <img
               src="<%=require('./images/Close_Icon.svg')%>"
               class="popup__icon"
@@ -104,7 +100,7 @@
                   placeholder="Имя"
                   class="form__item form__item-name form__item-validity"
                   id="name"
-                  name="name"
+                  name="profileTitle"
                   value=""
                 />
                 <!-- form__item_disabled -->
@@ -120,7 +116,7 @@
                   placeholder="О себе"
                   class="form__item form__item-information form__item-validity"
                   id="information"
-                  name="information"
+                  name="profileSubtitle"
                   value=""
                 />
                 <span id="information-error" class="form__erorr"></span>
@@ -141,7 +137,6 @@
             class="popup__button popup__button_card"
             aria-label="Close"
           >
-            
             <img
               src="<%=require('./images/Close_Icon.svg')%>"
               class="popup__icon"
@@ -161,7 +156,7 @@
                 placeholder="Название"
                 class="form__item form__item-locality"
                 id="title"
-                name="card-name"
+                name="name"
               />
               <span id="title-error" class="form__erorr"></span>
               <!-- </label> -->
@@ -173,11 +168,11 @@
                 autocomplete="off"
                 type="url"
                 placeholder="Ссылка на картинку"
-                class="form__item form__item-link"
-                id="link"
-                name="card-link"
+                class="form__item form__item-link form__item-card-link"
+                id="linkCard"
+                name="link"
               />
-              <span id="link-error" class="form__erorr"></span>
+              <span id="linkCard-error" class="form__erorr"></span>
               <!--  </label> -->
               <button class="form__button form__button-card" type="submit">
                 Создать
@@ -187,7 +182,7 @@
         </div>
       </div>
       <!--   popup_opened-->
-      <div class="popup popup_image popup__image">
+      <div class="popup popup_image">
         <div class="popup__container">
           <button
             type="button"
@@ -211,7 +206,11 @@
       <div class="popup popup_avatar">
         <!-- попап аватара-->
         <div class="popup__container">
-          <button type="button" class="popup__button popup__button_avatar" aria-label="Close">
+          <button
+            type="button"
+            class="popup__button popup__button_avatar"
+            aria-label="Close"
+          >
             <!-- "<%=require('./images/Close_Icon.svg')%>" -->
             <img
               src="<%=require('./images/Close_Icon.svg')%>"
@@ -219,7 +218,11 @@
               alt="крестик закрытия"
             />
           </button>
-          <form class="form form-avatar" name="modal modal__addPhoto" novalidate>
+          <form
+            class="form form-avatar"
+            name="modal modal__addPhoto"
+            novalidate
+          >
             <h2 class="form__heading">Обновить аватар</h2>
             <fieldset class="form__input-container">
               <!-- <label class="form__input-label"> -->
@@ -232,7 +235,7 @@
                 placeholder="Ссылка на картинку"
                 class="form__item form__item-link form__item-avatar"
                 id="avatarLink"
-                name="card-link"
+                name="avatarlink"
               />
               <span id="avatarLink-error" class="form__erorr"></span>
               <!--  </label> -->
@@ -243,12 +246,9 @@
           </form>
         </div>
       </div>
-
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <!-- <script type="module" src=".//components/index.js"></script> -->
   </body>
 </html>
-
