@@ -1,16 +1,18 @@
 export class Popup {
-  components(popupSelector) {
+  constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
   }
 
   open() {
     this._popup.classList.add("popup_opened");
     this._setEventListeners();
+    document.addEventListener("keydown", this._handleEscape);
   }
 
   close() {
     this._popup.classList.remove("popup_opened");
     this._removeEventListeners();
+    document.removeEventListener("keydown", this._handleEscape);
   }
 
   _handleEscape = (evt) => {
@@ -30,11 +32,15 @@ export class Popup {
 
   _setEventListeners() {
     this._popup.addEventListener("click", this._handleClick);
-    document.addEventListener("keydown", this._handleEscape);
+   
   }
 
   _removeEventListeners() {
     this._popup.removeEventListener("click", this._handleClick);
-    document.removeEventListener("keydown", this._handleEscape);
+    
   }
+  takePopup() {
+    return this._popup;
 }
+};
+
